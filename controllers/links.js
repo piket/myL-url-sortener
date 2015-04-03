@@ -22,7 +22,7 @@ router.post('/',function(req,res){
 router.get('/links',function(req,res){
     db.url.findAll({order: "count DESC"}).then(function(urls){
         var urlArray = urls.map(function(item) {
-            return [item.link,item.count,hashid.encode(item.id)];
+            return [item.link,item.count,req.headers.host + '/' +hashid.encode(item.id)];
         })
         res.render('links',{links:urlArray});
     });
@@ -33,7 +33,7 @@ router.get('/:id',function(req,res) {
     var myId = parseInt(hashid.decode(req.params.id));
     if (typeof myId === 'number') {
         db.url.find({where:{id:myId}}).then(function(myl){
-            res.render('preview',{url:myl.link,hash:req.params.id,count:myl.count});
+            res.render('preview',{url:myl.link,hash:req.headers.host + '/' +req.params.id,count:myl.count});
         }).catch(function(error){
             // console.log("Database error:",error);
             res.render('error',{error:"Your url does not exist!"});
