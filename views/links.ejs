@@ -1,0 +1,12 @@
+<% include partials/header %>
+<ul class="list-group">
+<% for(var i = 0; i < links.length; i++) { %>
+    <li class="list-group-item"><a href="/<%=links[i][2]%>">localhost:3000/<%=links[i][2]%></a> (<%=links[i][0]%>) clicked <%=links[i][1]%>
+    <% if (links[i][1] === 1) {%>
+    time</li>
+    <%}else{%>
+    times</li>
+    <%}%>
+<%}%>
+</ul>
+<% include partials/footer %>

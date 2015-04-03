@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "timon",
+    "password": "pwd",
+    "database": "url_shortener",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "timon",
+    "password": "pwd",
+    "database": "url_shortener",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "timon",
+    "password": "pwd",
+    "database": "url_shortener",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
